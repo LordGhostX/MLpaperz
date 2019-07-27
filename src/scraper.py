@@ -1,13 +1,17 @@
-# Responsible for scraping the latest and trending research papers
+# Responsible for scraping & parsing the latest and trending research papers
 
 from requests import get
 from bs4 import BeautifulSoup as Soup
 
 # Get the latest research papers
 def get_latest(limit=None):
-    # The limit input parameter is used to set a limit to the amount of papers returned
+    papers = get_papers("https://paperswithcode.com/latest", limit)
+    return papers
 
-    r = get("https://paperswithcode.com/latest")
+# Get Research Papers
+def get_papers(url, limit=None):
+    # The limit input parameter is used to set a limit to the amount of papers returned
+    r = get(url)
     soup = Soup(r.text, features="html5lib")
 
     # The div element with the class infinite-item is where all the papers are located
