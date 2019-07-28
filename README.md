@@ -16,7 +16,7 @@ This is a telegram bot which scrapes the latest and trending research work from 
    1. Rename `config-sample.json` file to `config.json` located in the config folder.
    2. Create your telegram bot from [`@botfather`](https://t.me/botfather) and create the channel you wish to receive updates on.
    3. Fill in your bot API token into the `bot_token` value in your config file.
-   4. Fill in your telegram channel public name (for public channels) or channel|group chat_id (for private channels and groups) into the `channel_token` value in your config file.
+   4. Fill in your telegram channel public name (for public channels) or channel || group chat_id (for private channels and groups) into the `channel_token` value in your config file.
    5. Set your `update_interval`, It is how many hours your bot will periodically check paperswithcode.com for updates. Setting a value of 1 means papers will be updated every hour.
    6. Set your database name. This is the file containing previously viewed papers and it is in JSON format. The value can be `db.json` or `db/db.json` or whatever you please, Note the file does not need to exist when setting this up.
 3. Run the `main.py` file

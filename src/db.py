@@ -20,6 +20,7 @@ class DB():
 
     def writeDB(self, data, indent=4):
         # Writes content to the database
+        data["server"]["last_update"] = int(time())
         with open(self.dbName, "w") as f:
             f.write(dumps(data, indent=indent))
 
