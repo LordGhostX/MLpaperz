@@ -44,12 +44,6 @@ def parse_papers(papers, tag):
         # Paper Header
         paper_header = soup.find("div", {"class": "paper-title"})
         paper_title = paper_header.find("h1").text
-        paper_authors = paper_header.find_all("span")
-        paper_date = paper_authors[0].text.strip()
-        authors = []
-        for author in paper_authors[1:]:
-            # Merge the names of the authors with _ so we account for their surnames and first names
-            authors.append("_".join(author.text.split()))
 
         # Paper Abstract
         paper_abstract = soup.find("div", {"class": "paper-abstract"})
@@ -61,6 +55,6 @@ def parse_papers(papers, tag):
         # Paper Code Implementation
         paper_code = soup.find("a", {"class": "code-table-link"})["href"]
 
-        parsed_papers.append({"url": paper, "title": paper_title, "date": paper_date, "authors": authors, "abstract": abstract_text, "abstract link 1": abstract_link_1, "abstract link 2": abstract_link_2, "code": paper_code, "tag": tag})
+        parsed_papers.append({"url": paper, "title": paper_title, "abstract": abstract_text, "abstract link 1": abstract_link_1, "abstract link 2": abstract_link_2, "code": paper_code, "tag": tag})
 
     return parsed_papers
