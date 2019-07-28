@@ -1,7 +1,7 @@
 # Main Scraper code
 # Run this to start the bot
 
-from telegram import Telegram
+from bot import Telegram
 from db import DB
 import scraper
 import configuration

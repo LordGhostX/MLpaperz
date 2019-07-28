@@ -1,4 +1,4 @@
-# Responsible for the management of the telegram bot
+# Responsible for the management of the message bot
 from requests import get
 from time import sleep
 import configuration
