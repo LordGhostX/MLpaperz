@@ -19,7 +19,7 @@ This is a telegram bot which scrapes the latest and trending research work from 
    3. Fill in your bot API token into the `bot_token` value in your config file.
    4. Fill in your telegram channel public name (for public channels) or channel || group chat_id (for private channels and groups) into the `channel_token` value in your config file.
    5. Set your `update_interval`, It is how many hours your bot will periodically check paperswithcode.com for updates. Setting a value of 1 means papers will be updated every hour.
-   6. Set your `admin_id`, This is used to let the bot alert the admin each time it has completed scraping; However it is not compulsory and you can comment out the line that sends the alert from `main.py` 
+   6. Set your `admin_id`, This is used to let the bot alert the admin each time it has completed scraping; However it is not compulsory and you can comment out the line that sends the alert from `main.py`
    7. Set your database name. This is the file containing previously viewed papers and it is in JSON format. The value can be `db.json` or `db/db.json` or whatever you please, Note the file does not need to exist when setting this up.
 3. Run the `main.py` file. Or you can import it into another script and run it in cron mode; Make sure the bot is a member of the group or administrator on the channel
 ```python
@@ -33,8 +33,8 @@ main(cron_mode=True)
 * [x] Scraping and Parsing Trending Research Papers
 * [x] Setup telegram bot to send messages
 * [x] Setup main.py
+* [x] Setup hosting server
 
 ## TODO
-* [ ] Setup hosting server
 * [ ] Design some dope logo instead of using paperswithcode logo
 * [ ] Slack, Discord Bot Support
