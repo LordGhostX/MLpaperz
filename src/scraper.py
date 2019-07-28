@@ -17,7 +17,10 @@ def get_trending(limit=None):
 def get_papers(url, limit=None):
     # The limit input parameter is used to set a limit to the amount of papers returned
     r = get(url)
-    soup = Soup(r.text, features="html5lib")
+    try:
+        soup = Soup(r.text, features="html5lib")
+    except:
+        soup = Soup(r.text)
 
     # The div element with the class infinite-item is where all the papers are located
     papers = []
@@ -39,7 +42,10 @@ def parse_papers(papers, tag):
     for paper in papers:
         # Scrape the paper link and start formatting
         r = get(paper)
-        soup = Soup(r.text, features="html5lib")
+        try:
+            soup = Soup(r.text, features="html5lib")
+        except:
+            soup = Soup(r.text)
 
         # Paper Header
         paper_header = soup.find("div", {"class": "paper-title"})

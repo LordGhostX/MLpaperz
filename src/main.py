@@ -19,6 +19,7 @@ def main(cron_mode=False):
     update_interval = float(configuration.load_config()["update_interval"]) * 60 * 60
 
     while True:
+        # A very lazy approach to error handling
         try:
             # Get the latest and trending research
             latest_data = scraper.get_latest()
@@ -48,13 +49,13 @@ Code Implementation - {}
 
 #{} @MLpaperz""".format(paper["title"], abstract, paper["url"], paper["abstract link 1"], paper["abstract link 2"], paper["code"], paper["tag"])
                 bot.sendMessage(message)
-            bot.alertAdmin()
 
             # update database
             db["latest_research"] = db["latest_research"] + latest_data
             db["trending_research"] = db["trending_research"] + trending_data
             db_handler.writeDB(db)
-        except:
+        except Exception as e:
+            print(e)
             pass
 
         if cron_mode:
@@ -62,6 +63,7 @@ Code Implementation - {}
             break
 
         # Sleep till next interval
+        bot.alertAdmin()
         time.sleep(update_interval)
 
 if __name__ == "__main__":
