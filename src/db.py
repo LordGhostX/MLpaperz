@@ -15,7 +15,7 @@ class DB():
             with open(self.dbName) as f:
                 db = load(f)
         else:
-            db = {"server": {"start_date": time()}, "latest_research": [], "trending_research": []}
+            db = {"server": {"start_date": int(time())}, "latest_research": [], "trending_research": []}
         return db
 
     def writeDB(self, data, indent=4):

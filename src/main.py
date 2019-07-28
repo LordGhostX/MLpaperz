@@ -32,21 +32,23 @@ while True:
     # format paper info and send to Telegram
     for paper in latest_papers + trending_papers:
         message = """{}
-Paper URL: {}
 
 {}
+
+URL - {}
 {}
 {}
 
-Code Implementation: {}
+Code Implementation - {}
 date: {}
 
-#{} @MLpaperz""".format(paper["title"], paper["url"], paper["abstract"], paper["abstract link 1"], paper["abstract link 2"], paper["code"], paper["date"], paper["tag"])
+#{} @MLpaperz""".format(paper["title"], paper["abstract"], paper["url"], paper["abstract link 1"], paper["abstract link 2"], paper["code"], paper["date"], paper["tag"])
         bot.sendMessage(message)
 
     # update database
     db["latest_research"] = db["latest_research"] + latest_data
     db["trending_research"] = db["trending_research"] + trending_data
+    break
     db_handler.writeDB(db)
 
     # Sleep till next interval
