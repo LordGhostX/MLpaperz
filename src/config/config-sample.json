@@ -2,5 +2,6 @@
   "bot_token": "bot token from @botfather",
   "channel_token": "telegram channel token",
   "update_interval": "time in hours to run the bot",
-  "database_name": "name of the database e.g db.json"
+  "database_name": "name of the database e.g db.json",
+  "admin_id": "telegram id of bot admin (not compulsory)"
 }

@@ -48,6 +48,7 @@ Code Implementation - {}
 
 #{} @MLpaperz""".format(paper["title"], abstract, paper["url"], paper["abstract link 1"], paper["abstract link 2"], paper["code"], paper["tag"])
                 bot.sendMessage(message)
+            bot.alertAdmin()
 
             # update database
             db["latest_research"] = db["latest_research"] + latest_data
