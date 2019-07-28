@@ -1,5 +1,6 @@
 # Handling the scraper database which is used to know what we have scraped before or not
 from json import load, dumps
+from os.path import exists
 import configuration
 
 class DB():
@@ -9,8 +10,11 @@ class DB():
 
     def readDB(self):
         # Reads the database content
-        with open(self.dbName) as f:
-            db = load(f)
+        if exists(self.dbName):
+            with open(self.dbName) as f:
+                db = load(f)
+        else:
+            db = {}
         return db
 
     def writeDB(self, data, indent=4):
