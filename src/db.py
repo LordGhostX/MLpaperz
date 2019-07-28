@@ -5,7 +5,7 @@ import configuration
 class DB():
     def __init__(self):
         config = configuration.load_config()
-        self.dbName = config["database name"]
+        self.dbName = config["database_name"]
 
     def readDB(self):
         # Reads the database content
