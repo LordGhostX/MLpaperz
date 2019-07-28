@@ -23,7 +23,10 @@ def get_papers(url, limit=None):
     papers = []
     for _ in soup.find_all("div", {"class": "infinite-item"}):
         # Save the link to each of our papers
-        papers.append("https://paperswithcode.com" + _.find("a")["href"])
+        paper_url = _.find("a")["href"]
+        # Sometimes paper urls can be github links especially trending research so we are not going to include them because they lead to issues in the scraping
+        if paper_url[0] == "/":
+            papers.append("https://paperswithcode.com" + paper_url)
 
     if limit:
         return papers[:limit]
