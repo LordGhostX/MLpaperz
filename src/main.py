@@ -7,13 +7,15 @@ import scraper
 import configuration
 import time
 
-# Print Banner
-print("""███╗   ███╗██╗     ██████╗  █████╗ ██████╗ ███████╗██████╗ ███████╗
+# Print MLpaperz Banner
+print("""
+███╗   ███╗██╗     ██████╗  █████╗ ██████╗ ███████╗██████╗ ███████╗
 ████╗ ████║██║     ██╔══██╗██╔══██╗██╔══██╗██╔════╝██╔══██╗╚══███╔╝
 ██╔████╔██║██║     ██████╔╝███████║██████╔╝█████╗  ██████╔╝  ███╔╝
 ██║╚██╔╝██║██║     ██╔═══╝ ██╔══██║██╔═══╝ ██╔══╝  ██╔══██╗ ███╔╝
 ██║ ╚═╝ ██║███████╗██║     ██║  ██║██║     ███████╗██║  ██║███████╗
-╚═╝     ╚═╝╚══════╝╚═╝     ╚═╝  ╚═╝╚═╝     ╚══════╝╚═╝  ╚═╝╚══════╝""")
+╚═╝     ╚═╝╚══════╝╚═╝     ╚═╝  ╚═╝╚═╝     ╚══════╝╚═╝  ╚═╝╚══════╝
+""")
 
 # Setup database handler and get database content
 db_handler = DB()
@@ -39,6 +41,8 @@ while True:
 
     # format paper info and send to Telegram
     for paper in latest_papers + trending_papers:
+        abstract = paper["abstract"]
+        abstract = " ".join(abstract.split())
         message = """{}
 
 {}
@@ -48,15 +52,13 @@ URL - {}
 {}
 
 Code Implementation - {}
-date: {}
 
-#{} @MLpaperz""".format(paper["title"], paper["abstract"], paper["url"], paper["abstract link 1"], paper["abstract link 2"], paper["code"], paper["date"], paper["tag"])
+#{} @MLpaperz""".format(paper["title"], abstract, paper["url"], paper["abstract link 1"], paper["abstract link 2"], paper["code"], paper["tag"])
         bot.sendMessage(message)
 
     # update database
     db["latest_research"] = db["latest_research"] + latest_data
     db["trending_research"] = db["trending_research"] + trending_data
-    break
     db_handler.writeDB(db)
 
     # Sleep till next interval
