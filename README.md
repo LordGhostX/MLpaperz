@@ -14,8 +14,8 @@ This is a telegram bot which scrapes the latest and trending research work from 
 
 ## Current Progress
 * [x] Scraping and Parsing Latest Research Papers
+* [x] Scraping and Parsing Trending Research Papers
 
 ## TODO
-* [ ] Get trending research from [paperswithcode.com](https://paperswithcode.com)
 * [ ] Setup telegram bot to send messages
 * [ ] Setup hosting server  

@@ -8,6 +8,11 @@ def get_latest(limit=None):
     papers = get_papers("https://paperswithcode.com/latest", limit)
     return papers
 
+# Get the trending research papers
+def get_trending(limit=None):
+    papers = get_papers("https://paperswithcode.com", limit)
+    return papers
+
 # Get Research Papers
 def get_papers(url, limit=None):
     # The limit input parameter is used to set a limit to the amount of papers returned

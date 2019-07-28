@@ -18,6 +18,6 @@ class DB():
         with open(self.dbName, "w") as f:
             f.write(dumps(data, indent=indent))
 
-    def remove_duplicates(old, new):
+    def remove_duplicates(self, old, new):
         # Removes duplicates; This essentially makes sure that the resulting list elements are not members of the old list
         return list(set(new) - set(old))
