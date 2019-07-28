@@ -7,18 +7,9 @@ import scraper
 import configuration
 import time
 
-def main():
-    # Print MLpaperz Banner
-    print("""
-███╗   ███╗██╗     ██████╗  █████╗ ██████╗ ███████╗██████╗ ███████╗
-████╗ ████║██║     ██╔══██╗██╔══██╗██╔══██╗██╔════╝██╔══██╗╚══███╔╝
-██╔████╔██║██║     ██████╔╝███████║██████╔╝█████╗  ██████╔╝  ███╔╝
-██║╚██╔╝██║██║     ██╔═══╝ ██╔══██║██╔═══╝ ██╔══╝  ██╔══██╗ ███╔╝
-██║ ╚═╝ ██║███████╗██║     ██║  ██║██║     ███████╗██║  ██║███████╗
-╚═╝     ╚═╝╚══════╝╚═╝     ╚═╝  ╚═╝╚═╝     ╚══════╝╚═╝  ╚═╝╚══════╝
-""")
-
+def main(cron_mode=False):
     # Setup database handler and get database content
+    # The usecron used to tell the bot to use a cron job; what this means is that it won't be running infinitely according to your time_interval but only when called
     db_handler = DB()
     db = db_handler.readDB()
 
@@ -65,8 +56,21 @@ Code Implementation - {}
         except:
             pass
 
+        if cron_mode:
+            # Makes the loop only run once
+            break
+
         # Sleep till next interval
         time.sleep(update_interval)
 
 if __name__ == "__main__":
+    # Print MLpaperz Banner
+    print("""
+███╗   ███╗██╗     ██████╗  █████╗ ██████╗ ███████╗██████╗ ███████╗
+████╗ ████║██║     ██╔══██╗██╔══██╗██╔══██╗██╔════╝██╔══██╗╚══███╔╝
+██╔████╔██║██║     ██████╔╝███████║██████╔╝█████╗  ██████╔╝  ███╔╝
+██║╚██╔╝██║██║     ██╔═══╝ ██╔══██║██╔═══╝ ██╔══╝  ██╔══██╗ ███╔╝
+██║ ╚═╝ ██║███████╗██║     ██║  ██║██║     ███████╗██║  ██║███████╗
+╚═╝     ╚═╝╚══════╝╚═╝     ╚═╝  ╚═╝╚═╝     ╚══════╝╚═╝  ╚═╝╚══════╝
+""")
     main()
