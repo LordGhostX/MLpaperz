@@ -7,9 +7,8 @@ Currently hosted at [MLpaperz](https://t.me/MLpaperz) on telegram.
 
 This is a telegram bot which scrapes the latest and trending research work from [paperswithcode.com](https://paperswithcode.com) then uploads it to a telegram channel. The project was inspired from a conversation with a friend, I was talking to him about the latest paper release in NLP (at the time of writing) which is **roBERTa** and was surprised he hasn't heard about it. Then I asked him if he reads research papers and he said no because there's no way he could be checking research paper sites everyday for new releases and if there was a way he could be getting the updates on his phone it would be nice then I decided to create this to solve that problem.
 
-## Programming Language
-* Python (Main Language for the Scraper and Bot Client)
-* Flask (Bot Server Framework)
+## Technology
+* Python 3
 
 ## Setting Up
 1. Install the project requirements. Instructions located in `requirements.txt`
