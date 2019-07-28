@@ -9,7 +9,7 @@ import time
 
 def main(cron_mode=False):
     # Setup database handler and get database content
-    # The usecron used to tell the bot to use a cron job; what this means is that it won't be running infinitely according to your time_interval but only when called
+    # cron_mode is used to tell the bot to act like a cron job; This means it won't be running infinitely according to your time_interval but only when called
     db_handler = DB()
     db = db_handler.readDB()
 
