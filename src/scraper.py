@@ -33,7 +33,7 @@ def get_papers(url, limit=None):
     return papers
 
 # Parse paper urls and make it in a more structured format
-def parse_papers(papers):
+def parse_papers(papers, tag):
     parsed_papers = []
 
     for paper in papers:
@@ -61,6 +61,6 @@ def parse_papers(papers):
         # Paper Code Implementation
         paper_code = soup.find("a", {"class": "code-table-link"})["href"]
 
-        parsed_papers.append({"title": paper_title, "date": paper_date, "authors": authors, "abstract": abstract_text, "abstract link 1": abstract_link_1, "abstract link 2": abstract_link_2, "code": paper_code})
+        parsed_papers.append({"url": paper, "title": paper_title, "date": paper_date, "authors": authors, "abstract": abstract_text, "abstract link 1": abstract_link_1, "abstract link 2": abstract_link_2, "code": paper_code, "tag": tag})
 
     return parsed_papers
