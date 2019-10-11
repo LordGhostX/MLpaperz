@@ -28,7 +28,7 @@ This is a telegram bot which scrapes the latest and trending research work from 
 3. Run the `main.py` file. Or you can import it into another script and run it in cron mode; Make sure the bot is a member of the group or administrator on the channel; **Cron mode disables admin alerting, although you can reconfigure it to.**
 ```python
 from main import main
-# Do some other thing in your script
+# Do some other thing in your script to makeit work better
 main(cron_mode=True)
 ```
 
