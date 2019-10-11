@@ -44,7 +44,8 @@ main(cron_mode=True)
 * [ ] Slack, Discord Bot Support
 
 ## Author(s)
-* **LordGhostX**
+* **LordGhostX** And a friend 
 
 ## Licence
 [**MIT**](https://opensource.org/licenses/MIT)
+
